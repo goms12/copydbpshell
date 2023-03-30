@@ -19,7 +19,7 @@ ForEach ($p_file in Get-ChildItem $source)
     if (!(Test-Path -path ($destination + $p_file.name) -PathType Leaf))
     {
         # If file not exist, do copy and write the log
-        Add-Content \\192.168.10.77\Database$\log_backup_$(get-date -Format "yyyy_MM").log -Value "`n $(Get-Date -Format yyyy-MM-dd)|$(Get-Date -UFormat %T)|Copy|$($p_file.FullName)"
+        Add-Content \\192.168.XX.XX\Database$\log_backup_$(get-date -Format "yyyy_MM").log -Value "`n $(Get-Date -Format yyyy-MM-dd)|$(Get-Date -UFormat %T)|Copy|$($p_file.FullName)"
         Copy-Item $p_file.fullname -Destination $destination -Confirm:$false -Force:$true -Recurse
     }
     else
